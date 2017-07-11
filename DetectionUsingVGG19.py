@@ -15,9 +15,9 @@ from keras.layers import Dropout, Flatten, Dense
 
 t1 = t.time()
 model = VGG19(weights = 'imagenet', include_top=False, input_shape=(224, 224, 3))
-# for layer in model.layers[:17]:
-#     layer.trainable = False
-#     print layer
+for layer in model.layers[:17]:
+     layer.trainable = False
+     print layer
 x = model.output
 x = Flatten()(x)
 x = Dense(1024, activation="relu")(x)
